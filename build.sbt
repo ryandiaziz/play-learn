@@ -4,14 +4,14 @@ version := "1.0"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-scalaVersion := "2.13.16"
+scalaVersion := "3.3.4"
 
 libraryDependencies ++= Seq(
     guice,
-    jdbc,
     evolutions,
-    "org.postgresql" % "postgresql" % "42.7.3",
-    "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.1" % Test
+    jdbc,
+    "org.playframework.anorm" %% "anorm" % "2.7.0",
+    "org.postgresql" % "postgresql" % "42.7.3"
 )
 
 // Adds additional packages into Twirl

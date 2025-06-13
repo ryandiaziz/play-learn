@@ -4,8 +4,8 @@ import play.api.Logger
 import javax.inject._
 import play.api._
 import play.api.mvc._
-import repositories.UserRepository
-import models.User
+//import repositories.UserRepository
+//import models.User
 import utils.HtmlRendererUtil
 import views.html.pages.user.userPage
 import views.html.pages.post.postPage
@@ -17,8 +17,7 @@ import views.html.{index, main}
  */
 @Singleton
 class PageController @Inject()(
-        val controllerComponents: ControllerComponents,
-        userRepo: UserRepository
+        val controllerComponents: ControllerComponents
     ) extends BaseController {
     private val logger = Logger(this.getClass)
     /**
