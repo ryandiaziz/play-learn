@@ -13,6 +13,8 @@ import utils.JsonController
 import javax.inject.Inject
 
 class KategoriController @Inject()(cc: ControllerComponents, kategoriRepo: KategoriRepository) extends AbstractController(cc) with JsonController{
+    implicit val kategoriFormat: OFormat[Kategori] = Json.format[Kategori]
+
     def create: Action[AnyContent] = Action { request =>
         request.body.asJson match {
             case Some(json) =>
@@ -35,5 +37,12 @@ class KategoriController @Inject()(cc: ControllerComponents, kategoriRepo: Kateg
 
             case None => jsonExpected()
         }
+    }
+
+    def list: Action[AnyContent] = Action {
+        println("woi")
+        val data = kategoriRepo.all()
+        println(data)
+        Ok(Json.toJson(data))
     }
 }
